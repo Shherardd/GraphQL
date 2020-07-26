@@ -10,6 +10,11 @@ type Query {
     getCourses: [Course]
     "Devuleve un solo item (por id)"
     getCourse(id: ID!): Course
+
+    "devuelve todos los estudiantes"
+    getStudents: [Student]
+    "Devuleve un solo estudiante (por id)"
+    getStudent(id: ID!): Student
 }
 
 input CourseInput {
@@ -19,7 +24,22 @@ input CourseInput {
     topic: String
 }
 
+input StudentInput {
+    name: String!
+    email: String!
+}
+
+type Student {
+    _id: ID!
+    name: String!
+    email: String!
+}
+
 type Mutation {
     "crea un curso"
     createCourse(input: CourseInput!): Course
+    "edita un curso"
+    editCourse(input: )
+    "crea un estudiante"
+    createCourse(input: StudentInput!): Student
 }
